@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29411.138
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConwayGameOfLifeKataTests", "ConwayGameOfLifeKataTests\ConwayGameOfLifeKataTests.csproj", "{2874462A-F3C9-4A9D-8093-C9DF40ED646D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConwayGameOfLife", "ConwayGameOfLife\ConwayGameOfLife.csproj", "{994DBBAB-2056-48E6-AA3B-31480AFE81DD}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2874462A-F3C9-4A9D-8093-C9DF40ED646D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2874462A-F3C9-4A9D-8093-C9DF40ED646D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2874462A-F3C9-4A9D-8093-C9DF40ED646D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2874462A-F3C9-4A9D-8093-C9DF40ED646D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{994DBBAB-2056-48E6-AA3B-31480AFE81DD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{994DBBAB-2056-48E6-AA3B-31480AFE81DD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{994DBBAB-2056-48E6-AA3B-31480AFE81DD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{994DBBAB-2056-48E6-AA3B-31480AFE81DD}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {80CF0F01-D091-4834-8889-063A6DA8F1CB}
+	EndGlobalSection
+EndGlobal
