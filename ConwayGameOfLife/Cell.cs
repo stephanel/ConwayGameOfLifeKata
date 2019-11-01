@@ -10,7 +10,14 @@ namespace ConwayGameOfLife
     public class Cell
     {
         public static readonly Cell TopLeft = new Cell(0, 0);
+        public static readonly Cell TopCenter = new Cell(1, 0);
+        public static readonly Cell TopRight = new Cell(2, 0);
+        public static readonly Cell MiddleLeft = new Cell(0, 1);
         public static readonly Cell MiddleCenter = new Cell(1, 1);
+        public static readonly Cell MiddleRight = new Cell(2, 1);
+        public static readonly Cell BottomLeft = new Cell(0, 2);
+        public static readonly Cell BottomCenter = new Cell(1, 2);
+        public static readonly Cell BottomRight = new Cell(2, 2);
 
         int[][] Neighbours = new int[][]
         {
@@ -62,7 +69,12 @@ namespace ConwayGameOfLife
 
         public bool IsAlive(bool[][] board)
         {
-            return board[X][Y] == true;
+            return board[Y][X] == true;
+        }
+
+        public bool IsDead(bool[][] board)
+        {
+            return !IsAlive(board);
         }
 
         public bool IsInsideBoard(bool[][] board)

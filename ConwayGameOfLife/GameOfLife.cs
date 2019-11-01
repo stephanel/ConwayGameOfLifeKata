@@ -16,47 +16,37 @@ namespace ConwayGameOfLife
             new int[] { 1, -1 }
         };
 
-        public bool[][] Board { get; private set; }
+        public Board Board { get; private set; }
 
-        public GameOfLife(bool[][] board)
+        public GameOfLife(bool[][] grid)
         {
-            this.Board = board;
+            this.Board = Board.BuildBoard(grid);
         }
 
         public void NextGen()
         {
-            for(int x = 0; x < Board.Length; x++)
+            for(int x = 0; x < Board.Size; x++)
             {
-                for (int y = 0; y < Board[x].Length; y++)
+                for (int y = 0; y < Board.Grid[x].Length; y++)
                 {
                     Cell cell = new Cell(x, y);
 
-                    int neighboursCount = cell.CountNeighbours(Board);
+                    int neighboursCount = Board.CountNeighbours(cell);
 
-                    if (Board[x][y] = true && neighboursCount >= 2 && neighboursCount <= 3)
+                    if(neighboursCount < 2 || neighboursCount > 3)
                     {
-                        Board[x][y] = true;
-                    } 
-                    else if (Board[x][y] = false && neighboursCount == 3)
-                    {
-                        Board[x][y] = true;
+                        Board.Grid[x][y] = false;
                     }
+                    else if(Board.IsDead(cell))
+                    {
+                        Board.Grid[x][y] = neighboursCount == 3;
+                    } 
                     else
                     {
-                        Board[x][y] = false;
+                        Board.Grid[x][y] = neighboursCount >= 2 && neighboursCount <= 3;
                     }
                 }
             }
-        }
-
-        public static bool[][] BuildBoard(int size)
-        {
-            var board = new bool[size][];
-            for(int x = 0; x < size; x++)
-            {
-                board[x] = new bool[size];
-            }
-            return board;
         }
     }
 }
