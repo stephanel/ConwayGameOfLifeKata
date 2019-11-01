@@ -1,6 +1,4 @@
 ﻿using ConwayGameOfLife;
-using ConwayGameOfLifeKataTests.TestCases;
-using System.Linq;
 using Xunit;
 
 namespace ConwayGameOfLifeKataTests
