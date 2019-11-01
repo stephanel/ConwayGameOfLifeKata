@@ -50,11 +50,11 @@ namespace ConwayGameOfLife
 
         public bool IsInsideBoard(Cell cell)
         {
-            if (cell.X < 0 || cell.X >= this.Grid.Length)
+            if (cell.X < 0 || cell.X >= Size)
             {
                 return false;
             }
-            if (cell.Y < 0 || cell.Y >= Grid[cell.X].Length)
+            if (cell.Y < 0 || cell.Y >= Size)
             {
                 return false;
             }
@@ -90,7 +90,7 @@ namespace ConwayGameOfLife
 
                 Cell adjacentCell = new Cell(xCoord, yCoord);
 
-                if (!IsInsideBoard(adjacentCell))
+                if (IsOutsideBoard(adjacentCell))
                 {
                     continue;
                 }

@@ -61,7 +61,7 @@ namespace ConwayGameOfLifeKataTests
         public void Another_Test_Playing_To_The_Next_Generation()
         {
             // Given
-            var gridAsString = "110011|101010|001010|101011|100110|110100";
+            var gridAsString = "110011|101010|001010|101011";
             bool[][] grid = StringToArrayGridConverter.TransformToGridArray(gridAsString);
                 
             GameOfLife game = new GameOfLife(grid);
@@ -71,7 +71,12 @@ namespace ConwayGameOfLifeKataTests
 
             // Then
             var actual = StringToArrayGridConverter.TransformBoard(game.Board.Grid);
-            var expected = "110011|101010|001010|101011|100110|110100";
+
+            //110111
+            //101001
+            //001010
+            //101011
+            var expected = "110111|101001|001010|101011";
             Assert.Equal(expected, actual);
         }
 

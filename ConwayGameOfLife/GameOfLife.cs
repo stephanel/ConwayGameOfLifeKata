@@ -33,9 +33,7 @@ namespace ConwayGameOfLife
                 {
                     Cell cell = new Cell(x, y);
 
-                    int neighboursCount = Board.CountNeighbours(cell);
-
-                    Board.Grid[x][y] = CalculateNewState(cell, neighboursCount);
+                    Board.Grid[x][y] = CalculateNewState(cell, Board.CountNeighbours(cell));
                 }
             }
         }

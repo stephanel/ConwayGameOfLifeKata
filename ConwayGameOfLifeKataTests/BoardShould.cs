@@ -30,25 +30,26 @@ namespace ConwayGameOfLifeKataTests
         }
 
         [Theory]
-        [InlineData(-1, 0)]
-        [InlineData(-1, -1)]
-        [InlineData(0, -1)]
-        [InlineData(1, -1)]
-        [InlineData(2, -1)]
-        [InlineData(3, -1)]
-        [InlineData(3, 0)]
-        [InlineData(-1, 1)]
-        [InlineData(3, 1)]
-        [InlineData(3, 2)]
-        [InlineData(3, 3)]
-        [InlineData(2, 3)]
-        [InlineData(1, 3)]
-        [InlineData(0, 3)]
-        [InlineData(-1, 3)]
-        public void Check_If_Cell_Is_Outside(int x, int y)
+        [InlineData(-1, 0, 3)]
+        [InlineData(-1, -1, 3)]
+        [InlineData(0, -1, 3)]
+        [InlineData(1, -1, 3)]
+        [InlineData(2, -1, 3)]
+        [InlineData(3, -1, 3)]
+        [InlineData(3, 0, 3)]
+        [InlineData(-1, 1, 3)]
+        [InlineData(3, 1, 3)]
+        [InlineData(3, 2, 3)]
+        [InlineData(3, 3, 3)]
+        [InlineData(2, 3, 3)]
+        [InlineData(1, 3, 3)]
+        [InlineData(0, 3, 3)]
+        [InlineData(-1, 3, 3)]
+        [InlineData(0, 4, 4)]
+        public void Check_If_Cell_Is_Outside(int x, int y, int size)
         {
             // Arrange
-            Board board = Board.BuildBoard(3);
+            Board board = Board.BuildBoard(size);
 
             Cell cell = new Cell(x, y);
 
