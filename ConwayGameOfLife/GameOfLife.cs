@@ -25,28 +25,34 @@ namespace ConwayGameOfLife
 
         public void NextGen()
         {
-            for(int x = 0; x < Board.Size; x++)
+            int size = Board.Size;
+
+            for(int x = 0; x < size; x++)
             {
-                for (int y = 0; y < Board.Grid[x].Length; y++)
+                for (int y = 0; y < size; y++)
                 {
                     Cell cell = new Cell(x, y);
 
                     int neighboursCount = Board.CountNeighbours(cell);
 
-                    if(neighboursCount < 2 || neighboursCount > 3)
-                    {
-                        Board.Grid[x][y] = false;
-                    }
-                    else if(Board.IsDead(cell))
-                    {
-                        Board.Grid[x][y] = neighboursCount == 3;
-                    } 
-                    else
-                    {
-                        Board.Grid[x][y] = neighboursCount >= 2 && neighboursCount <= 3;
-                    }
+                    Board.Grid[x][y] = CalculateNewState(cell, neighboursCount);
                 }
             }
+        }
+
+        bool CalculateNewState(Cell cell, int neighboursCount)
+        {
+            if(Board.IsAlive(cell) && (neighboursCount == 2 || neighboursCount == 3))
+            {
+                return true;
+            }
+
+            if (Board.IsDead(cell) && neighboursCount == 3)
+            {
+                return true;
+            }
+
+            return false;
         }
     }
 }

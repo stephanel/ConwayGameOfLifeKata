@@ -139,7 +139,7 @@ namespace ConwayGameOfLifeKataTests
 
         [Theory]
         [MemberData(nameof(TestCases))]
-        public void GoToNextGeneration(bool[][] initialBoard, bool[][] expectedBoard)
+        public void Play_To_Next_Generation(bool[][] initialBoard, bool[][] expectedBoard)
         {
 
             // Given
@@ -161,10 +161,52 @@ namespace ConwayGameOfLifeKataTests
             Assert.Equal(expected, actual);
         }
 
-        // TODO Live_When_Cell_Have_Two_Or_Three_Live_Neighbours
-        // TODO Die_When_Game_Is_Overcrowding
-        // TODO Live_When_Cell_Is_Dead_ANd_Have_Exactly_Three_Live_Neighbours
+        [Fact]
+        public void Another_Test_Playing_To_The_Next_Generation()
+        {
+            // Given
+            // 110011
+            // 101010
+            // 001010
+            // 101011
+            // 100110
+            // 110100
+            bool[][] grid = new bool[][]
+            {
+                new bool[] { true, true, false, false, true, true },
+                new bool[] { true, false, true, false, true, false },
+                new bool[] { false, false, true, false, true, false },
+                new bool[] { true, false, true, false, true, true },
+                new bool[] { true, false, false, true, true, false },
+                new bool[] { true, true, false, true, false, false },
+            };
 
+            GameOfLife game = new GameOfLife(grid);
+
+            // When
+            game.NextGen();
+
+            // Then
+            // 110111
+            // 101001
+            // 001010
+            // 101001
+            // 100110
+            // 111110
+            bool[][] expectedBoard = new bool[][]
+            {
+                new bool[] { true, true, false, true, true, true},
+                new bool[] { true, false, true, false, false, true },
+                new bool[] { false, false, true, false, true, false },
+                new bool[] { true, false, true, false, false, true },
+                new bool[] { true, false, false, true, true, false },
+                new bool[] { true, true, true, true, true, false },
+            };
+
+            var actual = TransformBoard(game.Board.Grid);
+            var expected = TransformBoard(expectedBoard);
+            Assert.Equal(expected, actual);
+        }
 
         string TransformBoard(bool[][] board)
         {
